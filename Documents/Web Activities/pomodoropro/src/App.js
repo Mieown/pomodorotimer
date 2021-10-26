@@ -1,25 +1,93 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+
+const [second, setSecond] = useState('00');
+const [minute, setMinute] = useState('02');
+const [isActive, setIsActive] = useState(false);
+const [counter, setCounter] = useState(0);
+const [header, setHeader] = useState('Let\'s be productive!');
+const [background, setBackground] = useState(true);
+
+function ResetTimer() {
+  setSecond('00');
+  setMinute('02');
+  setCounter(0);
+  setIsActive(false);
+  setHeader('Let\'s be productive!');
+  setBackground(true);
+  }
+
+  function Pause() {
+    setSecond('00');
+    setMinute('01');
+    setCounter(0);
+    setIsActive(false);
+    setHeader('Now it\'s break time!');
+    setBackground(false);
+    }
+
+  useEffect(() => {
+    let intervalId;
+
+    if (isActive) {
+      intervalId = setInterval(() => {
+        
+        let secondCounter = parseInt(second);
+        let minuteCounter = parseInt(minute);
+
+        if (secondCounter == 0 && minuteCounter == 0) {
+          setIsActive(false);
+          if (header == 'Let\'s be productive!') {
+            Pause();
+          }   
+          else if (header == 'Now it\'s break time!') {
+            ResetTimer();
+          }   
+        } 
+          else {
+            if (secondCounter == 0) {
+              secondCounter = parseInt(second);
+              minuteCounter = parseInt(minute);
+              minuteCounter = minuteCounter - 1;
+              secondCounter = 59;
+              const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter;
+              const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}`: minuteCounter;
+              setMinute(computedMinute);
+              setSecond(computedSecond);
+            }
+            else {
+            secondCounter = secondCounter - 1;
+            const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter;
+            setSecond(computedSecond);
+          }
+      }
+        setCounter(counter => counter - 1);
+      }, 100)
+    }
+
+    return () => clearInterval(intervalId);
+  }, [isActive, counter])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={background ? 'background-red' : 'background-blue'}>
+    <div className="container">
+    <h1>Pomodoro Timer</h1>
+    <h2>{header}</h2>
+      <div className="time">
+        <span className="minute">{minute}</span>
+        <span>:</span>
+        <span className="second">{second}</span>
+      </div>
+      <div className="buttons">
+        <button onClick={() => setIsActive(!isActive)} className="start">{isActive ? "Pause": "Start"}</button>
+        <button onClick={ResetTimer} className="reset">Reset</button>
+      </div>
     </div>
-  );
+    </div>
+  )
 }
 
 export default App;

@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background-red {
+  background-image: url('https://media.giphy.com/media/NoVU5MdoWC3umaD0Ju/source.gif');
+  height: 100vh;
+  padding: 7em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background-blue {
+  background-image: url('https://media.giphy.com/media/PNQi3nT7CVE3JFiRot/source.gif');
+  height: 100vh;
+  padding: 7em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.container {
+  width: 600px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  background: rgb(255, 255, 255, 0.8);
+  /* background: linear-gradient(90deg, rgb(252, 176, 141) 0%, rgb(250, 179, 146) 35%, rgb(252, 210, 191) 100%); */
+  padding: 4rem 5rem;
+  border-radius: 10px;
+  font-family: "Circular Std", Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: rgb(58, 139, 245);
+  font-size: 3em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+
+h2 {
+  color: rgb(58, 139, 245);
+  font-size: 1.95em;
+  margin-bottom: 0.3em;
+}
+
+.time {
+  font-size: 8rem;
+  margin-bottom: 1rem;
+  color: rgb(58, 139, 245);
+  margin-bottom: 0.16em;
+}
+
+.buttons button {
+  padding: 0.7rem 2rem;
+  border: none;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 300ms ease-in-out;
+  transform: translateY(0);
+}
+
+.buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.start {
+  background: #91eb55;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.pause {
+  background: #e4e446;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.reset {
+  background: #faae8b;
+  color: white;
 }
