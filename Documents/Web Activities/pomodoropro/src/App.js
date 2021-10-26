@@ -4,7 +4,7 @@ import './App.css';
 const App = () => {
 
 const [second, setSecond] = useState('00');
-const [minute, setMinute] = useState('02');
+const [minute, setMinute] = useState('01');
 const [isActive, setIsActive] = useState(false);
 const [counter, setCounter] = useState(0);
 const [header, setHeader] = useState('Let\'s be productive!');
@@ -63,6 +63,7 @@ function ResetTimer() {
             setSecond(computedSecond);
           }
       }
+
         setCounter(counter => counter - 1);
       }, 100)
     }
@@ -82,7 +83,7 @@ function ResetTimer() {
         <span className="second">{second}</span>
       </div>
       <div className="buttons">
-        <button onClick={() => setIsActive(!isActive)} className="start">{isActive ? "Pause": "Start"}</button>
+        <button onClick={() => setIsActive(!isActive)} className= {isActive ? 'yellow' : 'green'}>{isActive ? "Pause": "Start"}</button>
         <button onClick={ResetTimer} className="reset">Reset</button>
       </div>
     </div>

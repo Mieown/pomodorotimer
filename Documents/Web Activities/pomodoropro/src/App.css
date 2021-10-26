@@ -7,23 +7,26 @@
 .background-red {
   background-image: url('https://media.giphy.com/media/NoVU5MdoWC3umaD0Ju/source.gif');
   height: 100vh;
-  padding: 7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .background-blue {
   background-image: url('https://media.giphy.com/media/PNQi3nT7CVE3JFiRot/source.gif');
   height: 100vh;
-  padding: 7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  width: 600px;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background: rgb(255, 255, 255, 0.8);
-  /* background: linear-gradient(90deg, rgb(252, 176, 141) 0%, rgb(250, 179, 146) 35%, rgb(252, 210, 191) 100%); */
-  padding: 4rem 5rem;
+  padding: 4rem 10rem;
   border-radius: 10px;
   font-family: "Circular Std", Arial, Helvetica, sans-serif;
 }
@@ -66,16 +69,96 @@ h2 {
   transform: translateY(-2px);
 }
 
-.start {
+.green {
   background: #91eb55;
   color: white;
 }
 
-.pause {
+.yellow {
   background: #e4e446;
+  color: white;
 }
 
 .reset {
   background: #faae8b;
   color: white;
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 369px) {
+  
+  .container {
+    padding: 2.9em 2.9em;
+  }  
+
+  h1 {
+    font-size: 1.9em;
+    margin-top: 0.3em;
+    margin-bottom: 0.33em;
+  }
+  
+  
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+  }
+  
+  .time {
+    font-size: 5.8em;
+    margin-bottom: 1rem;
+    margin-bottom: 0.16em;
+  }
+
+}
+
+@media screen and (min-width: 370px) and (max-width: 390px) {
+
+  .container {
+    padding: 2.9em 2.9em;
+  }  
+
+  h1 {
+    font-size: 1.9em;
+    margin-top: 0.3em;
+    margin-bottom: 0.33em;
+  }
+  
+  
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+  }
+  
+  .time {
+    font-size: 5.8em;
+    margin-bottom: 1rem;
+    margin-bottom: 0.16em;
+  }
+
+}
+
+@media screen and (min-width: 391px) and (max-width: 600px) {
+  
+  .container {
+    padding: 2.9em 2.9em;
+  }  
+
+  h1 {
+    font-size: 1.9em;
+    margin-top: 0.3em;
+    margin-bottom: 0.33em;
+  }
+  
+  
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+  }
+  
+  .time {
+    font-size: 5.8em;
+    margin-bottom: 1rem;
+    margin-bottom: 0.16em;
+  }
+
 }
