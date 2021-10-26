@@ -4,7 +4,7 @@ import './App.css';
 const App = () => {
 
 const [second, setSecond] = useState('00');
-const [minute, setMinute] = useState('01');
+const [minute, setMinute] = useState('25');
 const [isActive, setIsActive] = useState(false);
 const [counter, setCounter] = useState(0);
 const [header, setHeader] = useState('Let\'s be productive!');
@@ -12,7 +12,7 @@ const [background, setBackground] = useState(true);
 
 function ResetTimer() {
   setSecond('00');
-  setMinute('02');
+  setMinute('25');
   setCounter(0);
   setIsActive(false);
   setHeader('Let\'s be productive!');
@@ -21,7 +21,7 @@ function ResetTimer() {
 
   function Pause() {
     setSecond('00');
-    setMinute('01');
+    setMinute('05');
     setCounter(0);
     setIsActive(false);
     setHeader('Now it\'s break time!');
@@ -65,7 +65,7 @@ function ResetTimer() {
       }
 
         setCounter(counter => counter - 1);
-      }, 100)
+      }, 1000)
     }
 
     return () => clearInterval(intervalId);
